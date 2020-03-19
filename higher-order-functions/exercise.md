@@ -3,9 +3,16 @@
 ## Challenge 1
 Create a function `addTwo` that accepts one input and adds 2 to it.
 
+function addTwo(num) {
+    return num+2;
+}
 
 ## Challenge 2
 Create a function `addS` that accepts one input and adds an "s" to it.
+
+function addS(word) {
+    return "S"+word;
+}
 
 ## Challenge 3
 Create a function called map that takes two inputs:
@@ -19,9 +26,22 @@ map([1,2,3,4,5], multiplyByTwo); //-> [2,4,6,8,10]
 multiplyByTwo(1); //-> 2
 multiplyByTwo(2); //-> 4
 ```
+function map(array, callback) {
+    result = [];
+    for(let el of array) {
+        result.push(callback(el))
+    }
+    return result;
+}
 
 ## Challenge 4
 The function `forEach` takes an array and a callback, and runs the callback on each element of the array. `forEach` does not return anything.
+
+function forEach(array, callback) {
+    for(let el of array){
+    console.log(callback(el))
+    }
+}
 
 ```js
 var alphabet = '';
@@ -32,8 +52,10 @@ forEach(letters, function(char) {
 console.log(alphabet);   //prints 'abcd'
 ```
 
+
 ## Extension 1
 In the first part of the extension, you're going to rebuild `map` as `mapWith`. This time you're going to use `forEach` inside of `mapWith` instead of using a for loop.
+
 
 
 ## Extension 2

@@ -3,7 +3,12 @@
 1. Write a function called `multiplyBy` that takes a `number` as an argument and returns a function. Returned function takes another `number` as an argument and returns the multiplication of both the numbers.
 
 ```js
-// Your code goes here
+function multiplyBy(number) {
+  function inner(num){
+    return num*number;
+  }
+  return inner;
+}
 
 const double = multiplyBy(2);
 const final = double(15); // final should be 30
@@ -12,7 +17,12 @@ const final = double(15); // final should be 30
 2. Write a function called `fullName` that takes a string `firstName` as an argument and returns a function. Returned function takes another string `lastName` as an argument and returns full name.
 
 ```js
-// Your code goes here
+function fullName(firstName) {
+  function inner(lastName){
+    return firstName + " " + lastName;
+  }
+  return inner;
+}
 
 const name = fullName("Will");
 const final = name("Smith"); // final should be "Will Smith"
@@ -22,7 +32,12 @@ const final = name("Smith"); // final should be "Will Smith"
 
 ```js
 function isInBetween(a, b) {
-  // your code goes here
+  function inner(n) {
+    if(n >= a && n <= b){
+      return true;
+    }else{ return false }
+  }
+  return inner;
 }
 
 const isChild = isInBetween(10, 100);
@@ -35,7 +50,10 @@ isChild(103); // false
 
 ```js
 function letsWishThem(greeting) {
-  // your code goes here
+  function inner(message) {
+    console.log(greeting + " " + message);
+  }
+  return inner;
 }
 
 const callWithHey = letsWishThem("Hey");
@@ -48,7 +66,12 @@ callWithHello("How Are You?"); // Hello How Are You?
 
 ```js
 function addGame(gameName) {
-  // your code goes here
+  let score = 0;
+  function inner() {
+    score = score+1;
+    console.log(`Your score of ${gameName} is ${score}`)
+  }
+  return inner;
 }
 
 // Output
@@ -64,14 +87,19 @@ cricket(); // Your score of Cricket is 2
 
 ```js
 function getCard(suit) {
-  // your code goes here
+  let cards = [2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A'];
+  function inner() {
+    let i = Math.floor(Math.random() * cards.length)
+    console.log(`Card is: ${cards[i]} ${suit}`);
+  }
+  return inner;
 }
 
 // Output
-const randomClub = addGame("Club");
+const randomClub = getCard("Club");
 randomClub(); // Card is: 6 Club
 randomClub(); // Card is: A Club
-const randomSpade = addGame("Spade");
+const randomSpade = getCard("Spade");
 randomSpade(); // Card is: 6 Spade
 randomSpade(); // Card is: A Spade
 ```

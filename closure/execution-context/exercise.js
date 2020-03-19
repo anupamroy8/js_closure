@@ -18,9 +18,9 @@ var counter = (function() {
   };
 })();
 
-counter.value();
-counter.increment();
-counter.increment();
-counter.value();
-counter.decrement();
-counter.value();
+counter.value(); //0
+counter.increment(); //1
+counter.increment(); //2
+counter.value(); //2
+counter.decrement();//1
+counter.value();//1
